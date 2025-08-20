@@ -99,7 +99,7 @@ def submit():
     html_body = generate_personalized_email(name, email, phone)
 
     send_email("One Stop Savings", html_body, recipient=email)
-    return redirect("/")
+    return redirect("https://financeproplus.com/?referralId=1006402")
 
 import smtplib
 from email.mime.multipart import MIMEMultipart
