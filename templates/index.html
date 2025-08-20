@@ -537,10 +537,62 @@ body {
                     margin-bottom: 12px;
                     letter-spacing: 1px;
                 ">
-                    $$$$$$ WELCOME $$$$$$
+                    <span style="display:inline-block;">
+                        <span class="dollar-blink dollar1">$</span>
+                        <span class="dollar-blink dollar2">$</span>
+                        <span class="dollar-blink dollar3">$</span>
+                        <span class="dollar-blink dollar4">$</span>
+                        <span class="dollar-blink dollar5">$</span>
+                        <span class="dollar-blink dollar6">$</span>
+                        <span style="color:#fff; font-weight:700;"> WELCOME </span>
+                        <span class="dollar-blink dollar7">$</span>
+                        <span class="dollar-blink dollar8">$</span>
+                        <span class="dollar-blink dollar9">$</span>
+                        <span class="dollar-blink dollar10">$</span>
+                        <span class="dollar-blink dollar11">$</span>
+                        <span class="dollar-blink dollar12">$</span>
+                    </span>
+                    <style>
+                    .dollar-blink {
+                        color: #ffd700;
+                        text-shadow: 0 0 8px #ffd700, 0 0 16px #fff200;
+                        font-weight: bold;
+                        animation: dollarPulse 1.2s infinite alternate;
+                    }
+                    .dollar1 { animation-delay: 0s; }
+                    .dollar2 { animation-delay: 0.18s; }
+                    .dollar3 { animation-delay: 0.36s; }
+                    .dollar4 { animation-delay: 0.54s; }
+                    .dollar5 { animation-delay: 0.72s; }
+                    .dollar6 { animation-delay: 0.9s; }
+                    .dollar7 { animation-delay: 0.13s; }
+                    .dollar8 { animation-delay: 0.31s; }
+                    .dollar9 { animation-delay: 0.49s; }
+                    .dollar10 { animation-delay: 0.67s; }
+                    .dollar11 { animation-delay: 0.85s; }
+                    .dollar12 { animation-delay: 1.03s; }
+
+                    @keyframes dollarPulse {
+                        0% { 
+                            opacity: 1; 
+                            filter: drop-shadow(0 0 8px #ffd700) brightness(1.2);
+                            transform: scale(1);
+                        }
+                        60% { 
+                            opacity: 0.7; 
+                            filter: drop-shadow(0 0 16px #fffbe0) brightness(1.5);
+                            transform: scale(1.18) rotate(-8deg);
+                        }
+                        100% { 
+                            opacity: 1; 
+                            filter: drop-shadow(0 0 8px #ffd700) brightness(1.2);
+                            transform: scale(1);
+                        }
+                    }
+                    </style>
                 </h2>
                 <p style="
-                    font-size: 1.2rem;
+                    font-size: 2.2rem;
                     font-weight: 500;
                     color: #fff;
                     margin-bottom: 0;
