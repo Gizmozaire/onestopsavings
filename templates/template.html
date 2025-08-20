@@ -1,0 +1,150 @@
+<!-- Email HTML Template -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>One Stop Savings - The Digital Wealth Revolution</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #f6f8fb;
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    .main-container {
+      max-width: 480px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(76, 84, 255, 0.08);
+      overflow: hidden;
+      padding: 0;
+    }
+    .header {
+      background: linear-gradient(90deg, #6cdfef 0%, #4e54c8 100%);
+      color: #fff;
+      text-align: center;
+      padding: 32px 24px 24px 24px;
+    }
+    .header h1 {
+      margin: 0 0 8px 0;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .video-thumb-container {
+      position: relative;
+      text-align: center;
+      margin: 24px 0 0 0;
+    }
+    .video-thumb {
+      width: 90%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(76, 84, 255, 0.12);
+      display: block;
+      margin: 0 auto;
+    }
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255,255,255,0.85);
+      border-radius: 50%;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(76, 84, 255, 0.18);
+    }
+    .play-btn img {
+      width: 32px;
+      height: 32px;
+    }
+    .gif-container {
+      text-align: center;
+      margin: 32px 0 0 0;
+    }
+    .gif-container img {
+      max-width: 90%;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(76, 84, 255, 0.10);
+    }
+    .content {
+      padding: 24px;
+      text-align: center;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #6cdfef 0%, #4e54c8 100%);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      border-radius: 32px;
+      padding: 16px 48px;
+      margin: 32px 0 0 0;
+      box-shadow: 0 2px 12px rgba(76, 84, 255, 0.14);
+      transition: background 0.2s;
+    }
+    .cta-btn:hover {
+      background: linear-gradient(90deg, #4e54c8 0%, #6cdfef 100%);
+    }
+    .footer {
+      text-align: center;
+      color: #888;
+      font-size: 0.95rem;
+      padding: 24px 0 16px 0;
+    }
+    @media (max-width: 600px) {
+      .main-container { max-width: 98%; }
+      .header h1 { font-size: 1.3rem; }
+      .content { padding: 16px; }
+      .cta-btn { padding: 12px 24px; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="header">
+      <h1>The Digital Wealth Revolution</h1>
+      <div class="video-thumb-container">
+        <a href="https://www.youtube.com/watch?v=d60UHc1cgog" target="_blank">
+          <img class="video-thumb" src="https://img.youtube.com/vi/d60UHc1cgog/hqdefault.jpg" alt="Watch Video">
+          <span class="play-btn">
+<p>Play </p>
+          </span>
+        </a>
+      </div>
+    </div>
+    <div class="gif-container">
+      <img src="https://www.eccu.net/assets/files/Y9MiwiP2/SavingsBlog6.gif" alt="Savings GIF">
+    </div>
+    <div class="content">
+    <p style="font-size:1.15rem; margin-bottom:24px; background: linear-gradient(90deg, #6cdfef 0%, #4e54c8 100%); color: #fff; border-radius: 12px; padding: 18px 12px; box-shadow: 0 2px 12px rgba(76, 84, 255, 0.10); font-weight: 600;">
+      <span style="color:#ffffff;">5 Industries.</span>
+      <span style="color:#ffffff;"> 1 Platform.</span>
+      <span style="color:#ffffff;"> Unlimited Opportunities.</span><br>
+      <span style="color:#fff;">Transform your financial future with our <span style="background:rgba(76,84,255,0.12); border-radius:6px; padding:2px 6px;">all-in-one wealth building solution</span>.</span>
+    </p>
+      <a class="cta-btn" href="https://financeproplus.com/?referralId=1006402" target="_blank">SIGN UP</a>
+    </div>
+
+
+
+    <div class="content"></div>
+        <h2 style="margin-bottom:12px;">Your Details</h2>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p><strong>Phone Number:</strong> {{ phonenumber }}</p>
+    </div>
+    <div class="footer">
+      &copy; 2025 One Stop Savings. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>
