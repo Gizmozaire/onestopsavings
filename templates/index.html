@@ -471,7 +471,18 @@
             border-radius: 10px;
             border: 1px solid rgba(76, 175, 80, 0.5);
         }
-    </style>
+        .industry-img {
+            margin-bottom: 20px;
+            width: 190px; /* Increased from 80px */
+            height: 190px; /* Ensures square aspect ratio */
+            transition: transform 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+            filter: drop-shadow(0 4px 16px rgba(108,223,239,0.25));
+            border-radius: 16px;
+            background: rgba(255,255,255,0.07);
+            animation: floatImg 3s ease-in-out infinite alternate;
+            object-fit: cover;
+        }
+        </style>
 </head>
 <body>
     <div class="floating-element element-1"></div>
@@ -480,16 +491,59 @@
     
     <div class="container">
         <header>
-            <div class="logo">One Stop <span>Savings</span> Plus</div>
-            <nav>
-                <ul>
-                    <li><a href="#solutions">Solutions</a></li>
-                    
-                    <li><a href="#join">Join Now</a></li>
-                </ul>
-            </nav>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='financepro.gif') }}" alt="FinancePro Logo" style="height:48px; vertical-align:middle; margin-right:12px;">
+           
+            </div>
+            
         </header>
         
+
+
+
+        <section class="hero glass-effect" style="margin-bottom:40px; position:relative;">
+            <div class="mist-gradient" style="
+                background: linear-gradient(120deg, #6cdfef, #5c7de7, #8f94fb, #0099ff);
+                background-size: 300% 300%;
+                animation: mistMove 6s ease-in-out infinite;
+                border-radius: 20px;
+                padding: 50px 20px;
+                text-align: center;
+                box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+                position: relative;
+                z-index: 1;
+            ">
+                <h1 style="
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    margin-bottom: 18px;
+                    letter-spacing: 2px;
+                    color: #fff;
+                    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+                ">
+                    WHAT IF YOUR BILLS PAID YOU BACK?
+                </h1>
+                <h2 style="
+                    font-size: 1.7rem;
+                    font-weight: 600;
+                    color: #6cdfef;
+                    margin-bottom: 12px;
+                    letter-spacing: 1px;
+                ">
+                    $$$$$$ WELCOME $$$$$$
+                </h2>
+                <p style="
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    color: #fff;
+                    margin-bottom: 0;
+                    letter-spacing: 1px;
+                ">
+                    5 IN ONE PLATFORM
+                </p>
+            </div>
+             
         <section class="hero">
             <h1>The Digital Wealth Revolution</h1>
             <p class="tagline">5 Industries. 1 Platform. Unlimited Opportunities. Transform your financial future with our all-in-one wealth building solution.</p>
@@ -522,60 +576,107 @@
         
         <section class="features" id="solutions">
             <h2 class="section-title">5 Industries in 1 Platform</h2>
-            <div class="industries">
+            <div class="industries horizontal-industries">
                 <div class="industry glass-effect">
-                   
-                    <img src="{{ url_for('static', filename='wirele.png') }}" alt="Wireless Technology" style="  margin-bottom:20px;">
+                    <img src="{{ url_for('static', filename='wirele.png') }}" alt="Wireless Technology" class="industry-img">
                     <h3>Wireless Technology</h3>
-                    <p>Cutting-edge mobile solutions for modern financial management.</p>
+                    <p>Stay connected and save with innovative mobile and wireless solutions for your everyday needs. We show you how your wireless
+cell bill should work for you. $$$$</p>
                 </div>
                 <div class="industry glass-effect">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Investment Solutions</h3>
-                    <p>Smart investment platforms with real-time analytics and insights.</p>
+                    <img src="{{ url_for('static', filename='protv.png') }}" alt="Pro TV" class="industry-img">
+                    <h3>myProTV</h3>
+                    <p>Access premium entertainment and smart streaming with exclusive TV and media services. World changing live streaming App
+TV and Entertainment. Cut the cable 
+and pay your self for watching TV$$$$$</p>
                 </div>
                 <div class="industry glass-effect">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Financial Protection</h3>
-                    <p>Comprehensive security for your assets and financial future.</p>
+                    <img src="{{ url_for('static', filename='wellness.png') }}" alt="Wellness" class="industry-img">
+                    <h3>PRO WELLNESS CLUB</h3>
+                    <p>Unlock health rewards and wellness benefits for a happier, more balanced lifestyle.</p>
                 </div>
                 <div class="industry glass-effect">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    <h3>Wealth Management</h3>
-                    <p>Personalized strategies to grow and protect your wealth.</p>
+                    <img src="{{ url_for('static', filename='freedoncard.png') }}" alt="Freedom Pro Card" class="industry-img">
+                    <h3>FREEDOM PRO CARD</h3>
+                    <p>Transfer crypto to USD and other coins
+in seconds. Ready to with ready to withdraw 
+from ATM in minutes. No other card has our 
+technology or benefits to get paid. (Must See)</p>
                 </div>
                 <div class="industry glass-effect">
-                    <i class="fas fa-globe"></i>
-                    <h3>Global Networking</h3>
-                    <p>Connect with financial experts and opportunities worldwide.</p>
+                    <img src="{{ url_for('static', filename='trade.png') }}" alt="Pro Trade Club" class="industry-img">
+                    <h3>PRO TRADE CLUB</h3>
+                    <p>Connect, learn, and grow with global trading opportunities and expert guidance. Not available in USA and Canada at this time.
+Open up to other countries.</p>
                 </div>
             </div>
         </section>
-        
-        <section class="video-container">
-            <h2 class="section-title">Discover Your Financial Freedom</h2>
-            <div class="video-placeholder" id="videoPlaceholder">
-                <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Video thumbnail" class="video-thumbnail">
-                <div class="video-play-button">
-                    <i class="fas fa-play"></i>
-                </div>
-            </div>
-        </section>
-        
-        <div class="modal" id="videoModal">
-            <div class="modal-content">
-                <span class="close-button" id="closeModal">&times;</span>
-                <iframe class="video-iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
+        <style>
+        .horizontal-industries {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: stretch;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        .industry-img {
+            margin-bottom: 20px;
+            width: 190px; /* Increased from 80px */
+            height: 120px; /* Ensures square aspect ratio */
+            transition: transform 0.6s cubic-bezier(.68,-0.55,.27,1.55);
+            filter: drop-shadow(0 4px 16px rgba(108,223,239,0.25));
+            border-radius: 16px;
+            background: rgba(255,255,255,0.07);
+            animation: floatImg 3s ease-in-out infinite alternate;
+            object-fit: cover;
+        }
+        .industry:hover .industry-img {
+            transform: scale(1.15) rotate(-6deg);
+            filter: drop-shadow(0 8px 32px #6cdfef);
+        }
+        @keyframes floatImg {
+            0% { transform: translateY(0px);}
+            100% { transform: translateY(-12px);}
+        }
+        .industry {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 220px;
+            min-height: 320px;
+            justify-content: flex-start;
+            background: rgba(255,255,255,0.08);
+        }
+        .industry h3 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: #6cdfef;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .industry p {
+            font-size: 1rem;
+            color: #fff;
+            opacity: 0.92;
+            margin-bottom: 0;
+            margin-top: 0;
+            text-align: center;
+            max-width: 220px;
+        }
+        @media (max-width: 900px) {
+            .horizontal-industries {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        </style>
+       
         
       
         
-        <section class="referral-section" id="join">
-            <h2 class="section-title">Join The Revolution Today</h2>
-            <p>Free to join or become an agent to share these revolutionary services</p>
-            <a href="https://financeproplus.com/?referralId=1006402" class="referral-link">SIGN UP WITH OUR REFERRAL LINK</a>
-        </section>
+ 
         
         <footer>
            
@@ -647,5 +748,95 @@
             observer.observe(el);
         });
     </script>
+    <div style="
+                position: absolute;
+                top: 30px;
+                right: 40px;
+                z-index: 2;
+                text-align: right;
+                animation: fadeInAgent 2s ease, pulseAgent 2.5s infinite alternate;
+            ">
+                <span style="
+                    display: block;
+                    font-family: 'Montserrat', cursive, sans-serif;
+                    font-size: 2.1rem;
+                    font-weight: 700;
+                    color: #fff;
+                    letter-spacing: 2px;
+                    text-shadow: 0 2px 16px #6cdfef, 0 0px 32px #4e54c8;
+                    background: linear-gradient(90deg, #6cdfef 0%, #8f94fb 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    margin-bottom: 8px;
+                    animation: shimmerText 2.5s linear infinite;
+                ">
+                    INDEPENDENT AGENT
+                </span>
+                <span style="
+                    display: block;
+                    font-family: 'Raleway', sans-serif;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    color: #6cdfef;
+                    letter-spacing: 1px;
+                    text-shadow: 0 2px 10px #0099ff;
+                    margin-bottom: 6px;
+                    animation: bounceSherwood 1.8s infinite alternate;
+                ">
+                    SHERWOOD BALLARD JR
+                </span>
+                <span style="
+                    display: inline-block;
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    color: #fff;
+                    background: rgba(76, 223, 239, 0.18);
+                    border-radius: 30px;
+                    padding: 8px 22px;
+                    box-shadow: 0 2px 12px #6cdfef;
+                    letter-spacing: 1px;
+                    animation: pulsePhone 2s infinite alternate;
+                ">
+                    1-800-380-0917
+                </span>
+            </div>
+            <div style="text-align:center; margin:40px 0;">
+                <h2 style="font-family:'Montserrat',sans-serif; font-size:2rem; color:#6cdfef; font-weight:700; margin-bottom:18px;">
+                    AT FINANCE PRO PLUS’ WE MOVE FAST.
+                </h2>
+                <img src="{{ url_for('static', filename='agentplan.png') }}" alt="Agent Plan" style="max-width:340px; width:100%; border-radius:18px; box-shadow:0 8px 32px rgba(108,223,239,0.25); margin-top:18px;">
+            </div>
+            <style>
+            @keyframes fadeInAgent {
+                0% { opacity: 0; transform: translateY(-30px) scale(0.8);}
+                100% { opacity: 1; transform: translateY(0) scale(1);}
+            }
+            @keyframes shimmerText {
+                0% { background-position: -200px 0;}
+                100% { background-position: 200px 0;}
+            }
+            @keyframes bounceSherwood {
+                0% { transform: translateY(0);}
+                100% { transform: translateY(-12px);}
+            }
+            @keyframes pulseAgent {
+                0% { box-shadow: 0 0 0 0 #6cdfef;}
+                100% { box-shadow: 0 0 24px 8px #6cdfef;}
+            }
+            @keyframes pulsePhone {
+                0% { box-shadow: 0 0 0 0 #6cdfef;}
+                100% { box-shadow: 0 0 16px 4px #6cdfef;}
+            }
+            </style>
+        </section>
+        <style>
+        @keyframes mistMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        </style>
 </body>
 </html>
