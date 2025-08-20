@@ -20,6 +20,7 @@ from pymongo import MongoClient
 
 
 
+
 mongo_client = MongoClient("mongodb+srv://plantsoflife:12345@cluster0.xeljdgg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 db = mongo_client["plantsoflife"]
 leads_collection = db["leads"]
