@@ -13,14 +13,16 @@
             box-sizing: border-box;
         }
         
-        body {
-            font-family: 'Raleway', sans-serif;
-            color: #fff;
-            background: linear-gradient(-45deg, #1a2a6c, #2b5876, #4e54c8, #8f94fb);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            overflow-x: hidden;
-        }
+
+body {
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    background: linear-gradient(90deg, #0b1eeb 0%, #271cc2 40%, #0026ff 70%, #0511f7 100%);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    overflow-x: hidden;
+}
+
         
         @keyframes gradient {
             0% { background-position: 0% 50%; }
@@ -557,7 +559,7 @@
         <!-- Animated Opt-In Form -->
         <div class="form-container glass-effect" id="optin-form">
             <h2 class="form-title">Start Your Financial Journey</h2>
-            <p class="form-subtitle">Enter your details to unlock exclusive financial insights</p>
+            <p class="form-subtitle">Enter your details to unlock exclusive financial insights, you will have access to all the benefits. Register once and receive additional information.</p>
             
             <form class="opt-in-form"  action="/submit" method="POST">
                 <div class="form-group">
@@ -673,7 +675,12 @@ Open up to other countries.</p>
         }
         </style>
        
-        
+        <div style="text-align:center; margin:40px 0;">
+                <h2 style="font-family:'Montserrat',sans-serif; font-size:2rem; color:#6cdfef; font-weight:700; margin-bottom:18px;">
+                    AT FINANCE PRO PLUS’ WE MOVE FAST.
+                </h2>
+                <img src="{{ url_for('static', filename='agentplan.png') }}" alt="Agent Plan" style="max-width:340px; width:100%; border-radius:18px; box-shadow:0 8px 32px rgba(108,223,239,0.25); margin-top:18px;">
+            </div>
       
         
  
@@ -802,12 +809,7 @@ Open up to other countries.</p>
                     1-800-380-0917
                 </span>
             </div>
-            <div style="text-align:center; margin:40px 0;">
-                <h2 style="font-family:'Montserrat',sans-serif; font-size:2rem; color:#6cdfef; font-weight:700; margin-bottom:18px;">
-                    AT FINANCE PRO PLUS’ WE MOVE FAST.
-                </h2>
-                <img src="{{ url_for('static', filename='agentplan.png') }}" alt="Agent Plan" style="max-width:340px; width:100%; border-radius:18px; box-shadow:0 8px 32px rgba(108,223,239,0.25); margin-top:18px;">
-            </div>
+            
             <style>
             @keyframes fadeInAgent {
                 0% { opacity: 0; transform: translateY(-30px) scale(0.8);}
