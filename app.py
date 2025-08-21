@@ -47,7 +47,9 @@ from pymongo import MongoClient
 from datetime import datetime
 import os
 
-
+@app.route('/links', methods=['GET', 'POST'])
+def handle_links():
+    return render_template('agent-plan.html')  # Make sure form.html is in the 'templates' folder
 
 
 @app.route('/data', methods=['GET', 'POST'])

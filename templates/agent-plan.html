@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Agent Plan | Finance Pro+</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #0b1eeb 0%, #271cc2 40%, #0026ff 70%, #0511f7 100%);
+            min-height: 100vh;
+            margin: 0;
+            color: #fff;
+            font-family: 'Montserrat', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0;
+        }
+        .car-hero {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto 0 auto;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px 0 rgba(44, 92, 255, 0.25);
+            position: relative;
+            background: #0b1eeb;
+        }
+        .car-hero img {
+            width: 100%;
+            display: block;
+            border-radius: 30px;
+        }
+        .hero-title {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            color: #fff;
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 24px #0026ff, 0 2px 8px #000;
+            z-index: 2;
+        }
+        .fancy-btns {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin: 48px 0 32px 0;
+            flex-wrap: wrap;
+        }
+        .fancy-btn {
+            padding: 22px 48px;
+            border-radius: 40px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(90deg, #6cdfef 0%, #4e54c8 100%);
+            box-shadow: 0 6px 32px 0 rgba(76, 84, 255, 0.18), 0 2px 8px #0002;
+            border: none;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.18s, box-shadow 0.18s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .fancy-btn:before {
+            content: "";
+            position: absolute;
+            left: -75%;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.05) 100%);
+            transform: skewX(-25deg);
+            transition: left 0.5s;
+            z-index: 0;
+        }
+        .fancy-btn:hover {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 12px 36px 0 rgba(76, 84, 255, 0.28), 0 4px 16px #0003;
+        }
+        .fancy-btn:hover:before {
+            left: 120%;
+        }
+        .fancy-btn i {
+            font-size: 1.5rem;
+            z-index: 2;
+        }
+        .video-section {
+            margin: 32px auto 48px auto;
+            text-align: center;
+        }
+        .video-thumb-container {
+            position: relative;
+            display: inline-block;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 32px rgba(76, 84, 255, 0.18);
+        }
+        .video-thumb {
+            width: 380px;
+            max-width: 90vw;
+            border-radius: 20px;
+            display: block;
+        }
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255,255,255,0.92);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 2px 16px #4e54c8;
+            transition: background 0.2s, transform 0.2s;
+            z-index: 2;
+        }
+        .play-btn i {
+            color: #4e54c8;
+            font-size: 2.2rem;
+            margin-left: 4px;
+        }
+        .play-btn:hover {
+            background: #fff;
+            transform: translate(-50%, -50%) scale(1.08);
+        }
+        @media (max-width: 700px) {
+            .car-hero { max-width: 99vw; }
+            .hero-title { font-size: 1.5rem; left: 16px; top: 16px; }
+            .fancy-btns { gap: 16px; }
+            .fancy-btn { padding: 16px 20px; font-size: 1rem; }
+            .video-thumb { width: 98vw; }
+        }
+    </style>
+</head>
+<body>
+    <div class="car-hero">
+        <img src="{{ url_for('static', filename='agentplan.png') }}" alt="Finance Pro Race Car" id="car-img" />
+        <!-- Replace above src with your provided image if hosted online -->
+        <!-- <img src="YOUR_IMAGE_URL_HERE" alt="Finance Pro Race Car" /> -->
+        <!-- Optionally, you can overlay a title here if you want -->
+        <!-- <div class="hero-title">The Ultimate Agent Plan</div> -->
+    </div>
+    <div class="fancy-btns">
+        <a href="https://financeproplus.com/?referralId=1006402" class="fancy-btn btn-primary">
+            <i class="fas fa-user-plus"></i> SIGN UP
+        </a>
+        <a href="https://financepropartner.com/referral/1006402" class="fancy-btn btn-secondary">
+            <i class="fas fa-globe"></i> WEBSITE
+        </a>
+        
+    </div>
+    <div class="video-section" id="video">
+        <div class="video-thumb-container" style="position:relative;">
+            <img src="https://img.youtube.com/vi/d60UHc1cgog/maxresdefault.jpg" alt="CEO Message" class="video-thumb" id="video-thumb">
+            <div class="play-btn" id="play-btn"></div>
+                <i class="fas fa-play"></i>
+            </div>
+            <div id="video-iframe-container" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%;">
+                <iframe id="youtube-iframe"
+                    width="100%" height="100%" 
+                    src="" 
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
+                    style="border-radius:20px;"></iframe>
+            </div>
+        </div>
+        <div style="margin-top:18px; color:#b3e0ff; font-size:1.1rem;">
+            Click play to watch a message from CEO!
+        </div>
+    </div>
+    <script>
+        // Play YouTube video in-page
+        document.getElementById('play-btn').onclick = function() {
+            document.getElementById('video-thumb').style.display = 'none';
+            document.getElementById('play-btn').style.display = 'none';
+            var iframeContainer = document.getElementById('video-iframe-container');
+            var iframe = document.getElementById('youtube-iframe');
+            iframe.src = "https://www.youtube.com/embed/d60UHc1cgog?autoplay=1";
+            iframeContainer.style.display = 'block';
+        };
+    </script>
+    <script>
+        // Scroll to video section when CEO VIDEO button is clicked
+        function scrollToVideo() {
+            document.getElementById('video').scrollIntoView({behavior: "smooth", block: "center"});
+        }
+        // Optionally, swap in your provided car image:
+        document.getElementById('car-img').src = "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=900&q=80";
+        // To use your attached image, host it online and replace the src above.
+        // Example: document.getElementById('car-img').src = "YOUR_IMAGE_URL";
+    </script>
+</body>
+</html>
