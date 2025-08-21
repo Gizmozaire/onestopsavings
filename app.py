@@ -106,7 +106,13 @@ def submit():
     html_body = generate_personalized_email(name, email, phone)
 
     send_email("One Stop Savings", html_body, recipient=email)
-    return redirect("https://financeproplus.com/?referralId=1006402")
+    # Send welcome letter to the user
+
+    # Send a simple email using the user's email and render their name in the template
+    simple_html = render_template('welcome_letter.html', name=name, email=email)
+    send_email("Welcome to One Stop Savings!", simple_html, recipient=email)
+
+    return redirect("/")
 
 import smtplib
 from email.mime.multipart import MIMEMultipart
