@@ -105,10 +105,12 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 4px 32px rgba(76, 84, 255, 0.18);
-        }
-        .video-thumb {
             width: 380px;
             max-width: 90vw;
+            background: #000;
+        }
+        .video-thumb {
+            width: 100%;
             border-radius: 20px;
             display: block;
         }
@@ -138,23 +140,57 @@
             background: #fff;
             transform: translate(-50%, -50%) scale(1.08);
         }
+        #video-iframe-container {
+
+            
+            display: none;
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border-radius: 20px;
+            z-index: 3;
+            background: #000;
+        }
+        #youtube-iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            border: none;
+            display: block;
+        }
+        .minimize-btn {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            z-index: 10;
+            background: rgba(30,30,30,0.7);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 34px;
+            height: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .minimize-btn:hover {
+            background: #4e54c8;
+            color: #fff;
+        }
         @media (max-width: 700px) {
             .car-hero { max-width: 99vw; }
             .hero-title { font-size: 1.5rem; left: 16px; top: 16px; }
             .fancy-btns { gap: 16px; }
             .fancy-btn { padding: 16px 20px; font-size: 1rem; }
-            .video-thumb { width: 98vw; }
+            .video-thumb-container { width: 98vw; }
         }
     </style>
 </head>
 <body>
-    
-        <img src="{{ url_for('static', filename='agentplan.png') }}" alt="Finance Pro Race Car" id="car-img" />
-        <!-- Replace above src with your provided image if hosted online -->
-        <!-- <img src="YOUR_IMAGE_URL_HERE" alt="Finance Pro Race Car" /> -->
-        <!-- Optionally, you can overlay a title here if you want -->
-        <!-- <div class="hero-title">The Ultimate Agent Plan</div> -->
-  
+    <img src="{{ url_for('static', filename='agentplan.png') }}" alt="Finance Pro Race Car" id="car-img" />
     <div class="fancy-btns">
         <a href="https://financeproplus.com/?referralId=1006402" class="fancy-btn btn-primary">
             <i class="fas fa-user-plus"></i> SIGN UP
@@ -162,20 +198,19 @@
         <a href="https://financepropartner.com/referral/1006402" class="fancy-btn btn-secondary">
             <i class="fas fa-globe"></i> WEBSITE
         </a>
-        
     </div>
     <div class="video-section" id="video">
         <div class="video-thumb-container" style="position:relative;">
             <img src="https://img.youtube.com/vi/d60UHc1cgog/maxresdefault.jpg" alt="CEO Message" class="video-thumb" id="video-thumb">
-            <div class="play-btn" id="play-btn"></div>
+            <div class="play-btn" id="play-btn">
                 <i class="fas fa-play"></i>
             </div>
-            <div id="video-iframe-container" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%;">
+            <div id="video-iframe-container">
+                <button class="minimize-btn" id="minimize-btn" title="Minimize"><i class="fas fa-times"></i></button>
                 <iframe id="youtube-iframe"
-                    width="100%" height="100%" 
-                    src="" 
-                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen
-                    style="border-radius:20px;"></iframe>
+                    src=""
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen></iframe>
             </div>
         </div>
         <div style="margin-top:18px; color:#b3e0ff; font-size:1.1rem;">
@@ -192,14 +227,13 @@
             iframe.src = "https://www.youtube.com/embed/d60UHc1cgog?autoplay=1";
             iframeContainer.style.display = 'block';
         };
-    </script>
-    <script>
-        // Scroll to video section when CEO VIDEO button is clicked
-        function scrollToVideo() {
-            document.getElementById('video').scrollIntoView({behavior: "smooth", block: "center"});
-        }
-        // Optionally, swap in your provided car image:
-
+        // Minimize video
+        document.getElementById('minimize-btn').onclick = function() {
+            document.getElementById('video-iframe-container').style.display = 'none';
+            document.getElementById('youtube-iframe').src = "";
+            document.getElementById('video-thumb').style.display = 'block';
+            document.getElementById('play-btn').style.display = 'flex';
+        };
     </script>
 </body>
 </html>
