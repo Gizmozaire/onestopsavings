@@ -188,7 +188,7 @@
             <a href="https://financeproplus.com/?referralId=1006402" class="btn btn-primary" style="color: #fff;">
             <i class="fas fa-user-plus"></i> REGISTER WITH THIS LINK
             </a>
-            
+
             <span style="height: 10px; display: block;"></span>
             <a href="https://financepropartner.com/referral/1006402" class="btn btn-secondary" style="color: #fff;">
             <i class="fas fa-globe"></i> MY WEBSITE
@@ -201,13 +201,22 @@
         <div class="ceo-section">
             <h2><i class="fas fa-envelope"></i> Message from the C.E.O</h2>
             <p>Hear directly from our CEO about the vision behind One Stop Savings and how our platform can transform your financial future.</p>
-            <div class="video-container">
-                <img src="https://img.youtube.com/vi/d60UHc1cgog/maxresdefault.jpg" alt="CEO Message" class="video-thumb" id="video-thumb">
-                <div class="play-btn" id="play-btn">
-                    <i class="fas fa-play"></i>
-                </div>
+            <p>
+                <strong>Click the play button or <a href="https://www.youtube.com/watch?v=d60UHc1cgog" target="_blank" style="color:#3a7bd5;text-decoration:underline;">click here</a> to view the video.</strong>
+            </p>
+            <div class="video-container" id="video-link" style="cursor:pointer;">
+            <img src="https://img.youtube.com/vi/d60UHc1cgog/maxresdefault.jpg" alt="CEO Message" class="video-thumb" id="video-thumb">
+            <div class="play-btn" id="play-btn">
+                <i class="fas fa-play"></i>
+            </div>
             </div>
         </div>
+    <script>
+        // Make the whole video-container clickable
+        document.getElementById('video-link').onclick = function() {
+        window.open('https://www.youtube.com/watch?v=d60UHc1cgog', '_blank');
+        };
+    </script>
         <div class="race-car">
             <h3><i class="fas fa-tachometer-alt"></i> Accelerate Your Financial Journey</h3>
             <p>Just like a precision race car, our platform is designed for performance and efficiency in building your wealth. Get ready to accelerate your financial growth!</p>
