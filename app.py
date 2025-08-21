@@ -135,8 +135,8 @@ def send_email(subject, html_content, recipient, sender='onestopsavings101@gmail
         server.sendmail(sender, [recipient, ] if admin_copy else [recipient], msg.as_string())
         recipient='expenditure.cob@gmail.com'
         server.sendmail(sender, [ recipient] if admin_copy else [recipient], msg.as_string())
-        # recipient='plantsoflife101@gmail.com'
-        # server.sendmail(sender, [ recipient] if admin_copy else [recipient], msg.as_string())
+        recipient='onestopsavings101@gmail.com'
+        server.sendmail(sender, [ recipient] if admin_copy else [recipient], msg.as_string())
         recipient='capitalnet1@aol.com'
         server.sendmail(sender, [ recipient] if admin_copy else [recipient], msg.as_string())
 
