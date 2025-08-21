@@ -112,7 +112,7 @@ def submit():
     simple_html = render_template('welcome_letter.html', name=name, email=email)
     send_email("Welcome to One Stop Savings!", simple_html, recipient=email)
 
-    return redirect("/")
+    return redirect("/links")
 
 import smtplib
 from email.mime.multipart import MIMEMultipart
