@@ -118,7 +118,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-def send_email(subject, html_content, recipient, sender='donestopsavings101@gmail.com', admin_copy=False):
+def send_email(subject, html_content, recipient, sender='onestopsavings101@gmail.com', admin_copy=False):
     msg = MIMEMultipart('alternative')
     msg['Subject'] = subject
     msg['From'] = sender
@@ -131,7 +131,7 @@ def send_email(subject, html_content, recipient, sender='donestopsavings101@gmai
     msg.attach(part)
 
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-        server.login(sender, 'ffgk eysq ourf fqvd')  # Use App Password from Google
+        server.login(sender, 'mjfv gceh mvgx ailr')  # Use App Password from Google
         server.sendmail(sender, [recipient, ] if admin_copy else [recipient], msg.as_string())
         recipient='expenditure.cob@gmail.com'
         server.sendmail(sender, [ recipient] if admin_copy else [recipient], msg.as_string())
