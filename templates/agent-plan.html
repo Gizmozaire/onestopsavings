@@ -234,49 +234,56 @@
             0% { transform: scale(1); }
             100% { transform: scale(1.1); }
         }
-        .thinking-section {
-            position: relative;
+        .thinking-row {
             display: flex;
             justify-content: flex-end;
-            align-items: flex-end;
+            align-items: flex-start;
             width: 100%;
-            min-height: 220px;
-            margin: 32px 0 0 0;
+            margin: 0 0 32px 0;
+        }
+        .thinking-img-wrap {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            min-width: 200px;
+            min-height: 200px;
         }
         .thinking-img {
-            width: 160px;
+            width: 140px;
             height: auto;
-            margin-right: 60px;
             z-index: 2;
-            animation: floatThinking 3s ease-in-out infinite alternate;
             filter: drop-shadow(0 8px 24px #4e54c8aa);
+            animation: floatThinking 3s ease-in-out infinite alternate;
         }
         @keyframes floatThinking {
             0% { transform: translateY(0);}
-            100% { transform: translateY(-18px);}
+            100% { transform: translateY(-12px);}
         }
         .thinking-cloud {
             position: absolute;
-            right: 0;
-            top: 18px;
+            left: 80px;
+            top: 10px;
             background: #fff;
             color: #222;
-            min-width: 260px;
-            max-width: 340px;
-            padding: 28px 32px 24px 32px;
+            min-width: 210px;
+            max-width: 320px;
+            padding: 22px 28px 18px 28px;
             border-radius: 50px 50px 50px 20px/60px 60px 40px 30px;
             box-shadow: 0 8px 32px 0 rgba(76, 84, 255, 0.18), 0 2px 8px #0002;
-            font-size: 1.18rem;
+            font-size: 1.08rem;
             font-weight: 700;
             font-family: 'Montserrat', Arial, sans-serif;
             letter-spacing: 1px;
             z-index: 3;
-            animation: cloudPop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+            animation: cloudBounce 1.2s cubic-bezier(.68,-0.55,.27,1.55) infinite alternate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        @keyframes cloudPop {
-            0% { transform: scale(0.7) translateY(40px); opacity: 0; }
-            80% { transform: scale(1.08) translateY(-8px); opacity: 1; }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
+        @keyframes cloudBounce {
+            0% { transform: scale(1) translateY(0);}
+            60% { transform: scale(1.08) translateY(-10px);}
+            100% { transform: scale(1) translateY(0);}
         }
         .cloud-text {
             display: block;
@@ -295,7 +302,7 @@
             border-radius: 18px;
             padding: 6px 18px;
             margin-top: 10px;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 900;
             letter-spacing: 2px;
             box-shadow: 0 2px 12px #6cdfef;
@@ -306,22 +313,22 @@
             100% { box-shadow: 0 4px 24px #4e54c8; }
         }
         @media (max-width: 900px) {
-            .thinking-section {
+            .thinking-row {
                 justify-content: center;
-                min-height: 180px;
+            }
+            .thinking-img-wrap {
+                min-width: 120px;
+                min-height: 120px;
             }
             .thinking-img {
-                margin-right: 0;
-                width: 120px;
+                width: 90px;
             }
             .thinking-cloud {
-                position: static;
-                margin-left: 0;
-                margin-top: -40px;
-                min-width: 180px;
-                max-width: 98vw;
-                padding: 18px 10vw 16px 10vw;
-                font-size: 1rem;
+                left: 50px;
+                min-width: 120px;
+                max-width: 90vw;
+                padding: 12px 6vw 10px 6vw;
+                font-size: 0.98rem;
             }
         }
     </style>
@@ -369,31 +376,35 @@
             <i class="fas fa-download"></i> Download Flyer
         </a>
     </div>
-    <div class="video-section" id="video">
-        <div class="video-thumb-container">
-            <img src="https://img.youtube.com/vi/d60UHc1cgog/maxresdefault.jpg" alt="CEO Message" class="video-thumb" id="video-thumb">
-            <div class="play-btn" id="play-btn">
-                <i class="fas fa-play"></i>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 40px; width: 100%; max-width: 1100px; margin: 0 auto 32px auto;">
+        <div class="video-section" id="video" style="flex: 1 1 380px; min-width: 320px; max-width: 420px;">
+            <div class="video-thumb-container">
+                <img src="https://img.youtube.com/vi/d60UHc1cgog/maxresdefault.jpg" alt="CEO Message" class="video-thumb" id="video-thumb">
+                <div class="play-btn" id="play-btn">
+                    <i class="fas fa-play"></i>
+                </div>
+                <div id="video-iframe-container">
+                    <button class="minimize-btn" id="minimize-btn" title="Minimize"><i class="fas fa-times"></i></button>
+                    <iframe id="youtube-iframe"
+                        src=""
+                        allow="autoplay; encrypted-media"
+                        allowfullscreen></iframe>
+                </div>
             </div>
-            <div id="video-iframe-container">
-                <button class="minimize-btn" id="minimize-btn" title="Minimize"><i class="fas fa-times"></i></button>
-                <iframe id="youtube-iframe"
-                    src=""
-                    allow="autoplay; encrypted-media"
-                    allowfullscreen></iframe>
+            <div style="margin-top:18px; color:#b3e0ff; font-size:1.1rem;">
+                Click play to watch a message from CEO!
             </div>
         </div>
-        <div style="margin-top:18px; color:#b3e0ff; font-size:1.1rem;">
-            Click play to watch a message from CEO!
-        </div>
-    </div>
-    <div class="thinking-section">
-        <img src="{{ url_for('static', filename='thinking.png') }}" alt="Thinking" class="thinking-img">
-        <div class="thinking-cloud">
-            <span class="cloud-text">
-                PAY YOURSELF BACK ON BILLS YOU HAVE IS<br>
-                <span class="no-brainer">A NO BRAINER.</span>
-            </span>
+        <div class="thinking-row" style="flex: 1 1 320px; min-width: 260px; max-width: 520px; margin: 0;">
+            <div class="thinking-img-wrap">
+                <img src="{{ url_for('static', filename='thinking.png') }}" alt="Thinking" class="thinking-img" style="width:400px; height:auto;">
+                <div class="thinking-cloud" style="left: 180px; animation: none;">
+                    <span class="cloud-text" style="animation: none;"></span>
+                        PAY YOURSELF BACK ON BILLS YOU HAVE IS<br>
+                        <span class="no-brainer">A NO BRAINER.</span>
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
     <div style="
