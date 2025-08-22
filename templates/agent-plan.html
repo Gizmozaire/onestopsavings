@@ -189,6 +189,27 @@
             .fancy-btn { padding: 16px 20px; font-size: 1rem; }
             .video-thumb-container { width: 98vw; }
         }
+
+        @keyframes fadeInAgent {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes pulseAgent {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        @keyframes shimmerText {
+            0% { background-position: 200% 0; }
+            100% { background-position: 0 0; }
+        }
+        @keyframes bounceSherwood {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-4px); }
+        }
+        @keyframes pulsePhone {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
     </style>
 </head>
 <body>
@@ -217,6 +238,63 @@
         </div>
         <div style="margin-top:18px; color:#b3e0ff; font-size:1.1rem;">
             Click play to watch a message from CEO!
+        </div>
+    </div>
+    <div style="
+        position: fixed;
+        bottom: 24px;
+        left: 32px;
+        z-index: 10;
+        text-align: left;
+        animation: fadeInAgent 2s ease, pulseAgent 2.5s infinite alternate;
+    ">
+        <span style="
+            display: block;
+            font-family: 'Montserrat', cursive, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1.5px;
+            text-shadow: 0 2px 16px #6cdfef, 0 0px 32px #4e54c8;
+            background: linear-gradient(90deg, #6cdfef 0%, #8f94fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+            animation: shimmerText 2.5s linear infinite;
+        ">
+            INDEPENDENT AGENT
+        </span>
+        <span style="
+            display: block;
+            font-family: 'Raleway', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #6cdfef;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px #0099ff;
+            margin-bottom: 3px;
+            animation: bounceSherwood 1.8s infinite alternate;
+        ">
+            SHERWOOD BALLARD JR
+        </span>
+        <span style="
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #fff;
+            background: rgba(76, 223, 239, 0.18);
+            border-radius: 30px;
+            padding: 6px 18px;
+            box-shadow: 0 2px 12px #6cdfef;
+            letter-spacing: 1px;
+            animation: pulsePhone 2s infinite alternate;
+        ">
+            1-800-380-0917
+        </span>
+        <div style="margin-top:8px; font-size:0.95rem; color:#b3e0ff;">
+            &copy; 2025 All rights reserved.
         </div>
     </div>
     <script>
