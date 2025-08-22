@@ -82,7 +82,15 @@ def handle_form():
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
+from flask import send_from_directory
 
+@app.route('/download/banner')
+def download_banner():
+    return send_from_directory(
+        directory=os.path.join(app.root_path, 'static'),
+        path='banner.png',
+        as_attachment=True
+    )
 
 @app.route('/')
 def home():
