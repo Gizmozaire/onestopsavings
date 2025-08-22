@@ -104,17 +104,40 @@
             display: inline-block;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 32px rgba(76, 84, 255, 0.18);
             width: 380px;
             max-width: 90vw;
             background: #000;
             aspect-ratio: 16/9;
-            min-height: 214px; /* fallback for browsers without aspect-ratio */
+            min-height: 214px;
+            /* Magic border effect */
+            box-shadow: 0 0 0 4px transparent;
+            z-index: 1;
+        }
+        .video-thumb-container::before {
+            content: "";
+            position: absolute;
+            inset: -4px;
+            z-index: 2;
+            border-radius: 24px;
+            padding: 0;
+            background: linear-gradient(120deg, #6cdfef, #4e54c8, #0b1eeb, #6cdfef);
+            background-size: 300% 300%;
+            animation: magic-border 3s linear infinite;
+            filter: blur(4px);
+            opacity: 0.8;
+            pointer-events: none;
+        }
+        @keyframes magic-border {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         .video-thumb {
             width: 100%;
             border-radius: 20px;
             display: block;
+            position: relative;
+            z-index: 3;
         }
         .play-btn {
             position: absolute;
@@ -131,7 +154,7 @@
             cursor: pointer;
             box-shadow: 0 2px 16px #4e54c8;
             transition: background 0.2s, transform 0.2s;
-            z-index: 2;
+            z-index: 4;
         }
         .play-btn i {
             color: #4e54c8;
@@ -144,11 +167,12 @@
         }
         #video-iframe-container {
             display: none;
-            position: relative; /* changed from absolute */
+            position: absolute;
+            top: 0; left: 0;
             width: 100%;
             height: 100%;
             border-radius: 20px;
-            z-index: 3;
+            z-index: 5;
             background: #000;
         }
         #youtube-iframe {
@@ -223,7 +247,7 @@
         </a>
     </div>
     <div class="video-section" id="video">
-        <div class="video-thumb-container" style="position:relative;">
+        <div class="video-thumb-container">
             <img src="https://img.youtube.com/vi/d60UHc1cgog/maxresdefault.jpg" alt="CEO Message" class="video-thumb" id="video-thumb">
             <div class="play-btn" id="play-btn">
                 <i class="fas fa-play"></i>
