@@ -234,6 +234,96 @@
             0% { transform: scale(1); }
             100% { transform: scale(1.1); }
         }
+        .thinking-section {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            width: 100%;
+            min-height: 220px;
+            margin: 32px 0 0 0;
+        }
+        .thinking-img {
+            width: 160px;
+            height: auto;
+            margin-right: 60px;
+            z-index: 2;
+            animation: floatThinking 3s ease-in-out infinite alternate;
+            filter: drop-shadow(0 8px 24px #4e54c8aa);
+        }
+        @keyframes floatThinking {
+            0% { transform: translateY(0);}
+            100% { transform: translateY(-18px);}
+        }
+        .thinking-cloud {
+            position: absolute;
+            right: 0;
+            top: 18px;
+            background: #fff;
+            color: #222;
+            min-width: 260px;
+            max-width: 340px;
+            padding: 28px 32px 24px 32px;
+            border-radius: 50px 50px 50px 20px/60px 60px 40px 30px;
+            box-shadow: 0 8px 32px 0 rgba(76, 84, 255, 0.18), 0 2px 8px #0002;
+            font-size: 1.18rem;
+            font-weight: 700;
+            font-family: 'Montserrat', Arial, sans-serif;
+            letter-spacing: 1px;
+            z-index: 3;
+            animation: cloudPop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes cloudPop {
+            0% { transform: scale(0.7) translateY(40px); opacity: 0; }
+            80% { transform: scale(1.08) translateY(-8px); opacity: 1; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        .cloud-text {
+            display: block;
+            text-align: center;
+            line-height: 1.4;
+            animation: textPulse 2.5s infinite alternate;
+        }
+        @keyframes textPulse {
+            0% { color: #222; }
+            100% { color: #4e54c8; }
+        }
+        .no-brainer {
+            display: block;
+            color: #fff;
+            background: linear-gradient(90deg, #6cdfef 0%, #4e54c8 100%);
+            border-radius: 18px;
+            padding: 6px 18px;
+            margin-top: 10px;
+            font-size: 1.25rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            box-shadow: 0 2px 12px #6cdfef;
+            animation: noBrainerGlow 1.8s infinite alternate;
+        }
+        @keyframes noBrainerGlow {
+            0% { box-shadow: 0 2px 12px #6cdfef; }
+            100% { box-shadow: 0 4px 24px #4e54c8; }
+        }
+        @media (max-width: 900px) {
+            .thinking-section {
+                justify-content: center;
+                min-height: 180px;
+            }
+            .thinking-img {
+                margin-right: 0;
+                width: 120px;
+            }
+            .thinking-cloud {
+                position: static;
+                margin-left: 0;
+                margin-top: -40px;
+                min-width: 180px;
+                max-width: 98vw;
+                padding: 18px 10vw 16px 10vw;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -295,6 +385,15 @@
         </div>
         <div style="margin-top:18px; color:#b3e0ff; font-size:1.1rem;">
             Click play to watch a message from CEO!
+        </div>
+    </div>
+    <div class="thinking-section">
+        <img src="{{ url_for('static', filename='thinking.png') }}" alt="Thinking" class="thinking-img">
+        <div class="thinking-cloud">
+            <span class="cloud-text">
+                PAY YOURSELF BACK ON BILLS YOU HAVE IS<br>
+                <span class="no-brainer">A NO BRAINER.</span>
+            </span>
         </div>
     </div>
     <div style="
