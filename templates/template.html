@@ -13,7 +13,7 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             padding: 20px;
         }
         .container {
@@ -24,6 +24,7 @@
             box-shadow: 0 8px 32px rgba(44, 92, 255, 0.18);
             color: #222;
             padding: 32px 18px 18px 18px;
+            margin: 32px 0;
         }
         .header {
             background: linear-gradient(90deg, #1a2a6c, #3a7bd5);
@@ -117,6 +118,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 16px rgba(58,123,213,0.13);
+            cursor: pointer;
         }
         .video-thumb {
             width: 100%;
@@ -181,22 +183,28 @@
             <p>The Digital Wealth Revolution - Your Journey to Financial Freedom Starts Here</p>
         </div>
         <div class="welcome-section">
-            <h2>Welcome to one of the best business decisions you might have made in a minute.</h2>
+            <h2>Welcome {{name}} to one of the best business decisions you might have made in a minute.</h2>
             <p>You've taken the first step toward transforming your financial future with our all-in-one wealth building solution. 5 Industries. 1 Platform. Unlimited Opportunities.</p>
         </div>
         <div class="cta-buttons">
             <a href="https://financepropartner.com/referral/1006402" class="btn btn-primary" style="color: #fff;">
-            <i class="fas fa-user-plus"></i> REGISTER WITH THIS LINK
+                <i class="fas fa-user-plus"></i> REGISTER WITH THIS LINK
             </a>
-
-            <span style="height: 10px; display: block;"></span>
             <a href="https://financeproplus.com/?referralId=1006402" class="btn btn-secondary" style="color: #fff;">
-            <i class="fas fa-globe"></i> MY WEBSITE
+                <i class="fas fa-globe"></i> MY WEBSITE
+            </a>
+            <a href="https://onestopsavings.shop/flyer" class="btn btn-tertiary" style="margin-top:8px;">
+                <i class="fas fa-download"></i> Download Our Flyer
             </a>
         </div>
         <div class="ai-section">
             <h2><i class="fas fa-robot"></i> Pro AI Assistant</h2>
             <p>Your intelligent financial partner. Ask me anything about finance, business strategies, or get help with your daily tasks. Welcome to Pro AI - designed to help you make smarter financial decisions and optimize your business strategies with artificial intelligence.</p>
+            <div style="margin-top: 24px;">
+                <a href="https://financepropartner.com/app/pro-ai" class="btn btn-tertiary" style="font-size:1.2rem; padding:20px 0; width:95%; max-width:400px; background:linear-gradient(90deg,#00c6ff,#0072ff); color:#fff;">
+                    <i class="fas fa-rocket"></i> TRY PRO AI NOW
+                </a>
+            </div>
         </div>
         <div class="ceo-section">
             <h2><i class="fas fa-envelope"></i> Message from the C.E.O</h2>
@@ -204,19 +212,13 @@
             <p>
                 <strong>Click the play button or <a href="https://www.youtube.com/watch?v=d60UHc1cgog" target="_blank" style="color:#3a7bd5;text-decoration:underline;">click here</a> to view the video.</strong>
             </p>
-            <div class="video-container" id="video-link" style="cursor:pointer;">
-            <img src="https://img.youtube.com/vi/d60UHc1cgog/maxresdefault.jpg" alt="CEO Message" class="video-thumb" id="video-thumb">
-            <div class="play-btn" id="play-btn">
-                <i class="fas fa-play"></i>
-            </div>
+            <div class="video-container" id="video-link">
+                <img src="https://img.youtube.com/vi/d60UHc1cgog/maxresdefault.jpg" alt="CEO Message" class="video-thumb" id="video-thumb">
+                <div class="play-btn" id="play-btn">
+                    <i class="fas fa-play"></i>
+                </div>
             </div>
         </div>
-    <script>
-        // Make the whole video-container clickable
-        document.getElementById('video-link').onclick = function() {
-        window.open('https://www.youtube.com/watch?v=d60UHc1cgog', '_blank');
-        };
-    </script>
         <div class="race-car">
             <h3><i class="fas fa-tachometer-alt"></i> Accelerate Your Financial Journey</h3>
             <p>Just like a precision race car, our platform is designed for performance and efficiency in building your wealth. Get ready to accelerate your financial growth!</p>
@@ -226,10 +228,29 @@
             <p>&copy; 2025 One Stop Savings. All rights reserved.</p>
             <p>Financial freedom has never been more accessible</p>
         </div>
+
     </div>
+    <!-- Add this block after the .welcome-section and before .cta-buttons in your template.html -->
+
+<div class="your-details-section" style="background:#f5f8ff; border-radius:14px; margin:24px 0; padding:20px 12px; text-align:center; box-shadow:0 2px 12px rgba(58,123,213,0.07);">
+    <h2 style="color:#1a2a6c; margin-bottom:10px; font-size:1.15rem;">
+        <i class="fas fa-user"></i> Your Details
+    </h2>
+    <p style="font-size:1.08rem; color:#333; margin:0;">
+        <strong>Name:</strong> {{ name }}<br>
+        <strong>Email:</strong> {{ email }}<br>
+        <strong>Phone:</strong> {{ phone }}
+    </p>
+</div>
+ 
     <script>
-        // Play YouTube video in a new tab
-        document.getElementById('play-btn').onclick = function() {
+        // Make the whole video-container clickable
+        document.getElementById('video-link').onclick = function() {
+            window.open('https://www.youtube.com/watch?v=d60UHc1cgog', '_blank');
+        };
+        // Also allow clicking the play button
+        document.getElementById('play-btn').onclick = function(event) {
+            event.stopPropagation();
             window.open('https://www.youtube.com/watch?v=d60UHc1cgog', '_blank');
         };
     </script>
