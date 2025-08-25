@@ -526,31 +526,31 @@
     "><i class="fas fa-search-minus"></i></button>
 </div>
 <script>
-(function() {
-    var img = document.getElementById('car-img');
-    var zoomLevel = 1;
-    var minZoom = 0.5;
-    var maxZoom = 2.5;
-    var step = 0.1;
-    function setImgZoom() {
-        img.style.transform = "scale(" + zoomLevel + ")";
-        img.style.transition = "transform 0.2s";
-        img.style.transformOrigin = "center center";
+document.addEventListener("DOMContentLoaded", function () {
+    const img = document.querySelector("#zoom-modal img");
+    const zoomInBtn = document.getElementById("img-zoom-in-btn");
+    const zoomOutBtn = document.getElementById("img-zoom-out-btn");
+    let scale = 1;
+
+    function applyZoom() {
+        img.style.transform = `scale(${scale})`;
+        img.style.transition = "transform 0.2s ease";
     }
-    document.getElementById('img-zoom-in-btn').onclick = function() {
-        if (zoomLevel < maxZoom) {
-            zoomLevel += step;
-            setImgZoom();
+
+    zoomInBtn.addEventListener("click", () => {
+        scale += 0.2;
+        applyZoom();
+    });
+
+    zoomOutBtn.addEventListener("click", () => {
+        if (scale > 0.4) { // prevent it from disappearing
+            scale -= 0.2;
+            applyZoom();
         }
-    };
-    document.getElementById('img-zoom-out-btn').onclick = function() {
-        if (zoomLevel > minZoom) {
-            zoomLevel -= step;
-            setImgZoom();
-        }
-    };
-})();
+    });
+});
 </script>
+
 
 <style>
 @keyframes zoomPulse {
