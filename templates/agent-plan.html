@@ -400,15 +400,13 @@
                 <img src="{{ url_for('static', filename='thinking.png') }}" alt="Thinking" class="thinking-img" style="width:400px; height:auto;">
                 <div class="thinking-cloud" style="left: 180px; animation: none;">
                     <span class="cloud-text" style="animation: none;"></span>
-                        PAY USD YOURSELF BACK ON, YOU HAVE IS<br>
+                        PAY YOURSELF BACK ON, YOU HAVE IS<br>
                         <span class="no-brainer">A NO BRAINER.</span>
                     </span>
                 </div>
             </div>
         </div>
-        <!-- Add this just before the closing </body> tag in agent-plan.html -->
-
-<!-- Zoom Join Button (animated) -->
+ 
 <div id="zoom-join-wrap" style="position:fixed; right:32px; bottom:32px; z-index:100;">
     <button id="zoom-join-btn" style="
         background: linear-gradient(90deg, #6cdfef 0%, #4e54c8 100%);
@@ -497,7 +495,62 @@
             Join our live Zoom meeting to connect, learn, and grow with the Finance Pro+ community!
         </div>
     </div>
+<!-- Zoom In/Out Buttons for Zoom Image -->
+<div id="img-zoom-controls" style="position:fixed; bottom:100px; right:36px; z-index:110;">
+    <button id="img-zoom-in-btn" title="Zoom In" style="
+        background:#fff;
+        color:#4e54c8;
+        border:none;
+        border-radius:50%;
+        width:44px;
+        height:44px;
+        font-size:1.6rem;
+        margin-bottom:8px;
+        box-shadow:0 2px 8px #6cdfef;
+        cursor:pointer;
+        transition:background 0.2s;
+        display:block;
+    "><i class="fas fa-search-plus"></i></button>
+    <button id="img-zoom-out-btn" title="Zoom Out" style="
+        background:#fff;
+        color:#4e54c8;
+        border:none;
+        border-radius:50%;
+        width:44px;
+        height:44px;
+        font-size:1.6rem;
+        box-shadow:0 2px 8px #6cdfef;
+        cursor:pointer;
+        transition:background 0.2s;
+        display:block;
+    "><i class="fas fa-search-minus"></i></button>
 </div>
+<script>
+(function() {
+    var img = document.getElementById('car-img');
+    var zoomLevel = 1;
+    var minZoom = 0.5;
+    var maxZoom = 2.5;
+    var step = 0.1;
+    function setImgZoom() {
+        img.style.transform = "scale(" + zoomLevel + ")";
+        img.style.transition = "transform 0.2s";
+        img.style.transformOrigin = "center center";
+    }
+    document.getElementById('img-zoom-in-btn').onclick = function() {
+        if (zoomLevel < maxZoom) {
+            zoomLevel += step;
+            setImgZoom();
+        }
+    };
+    document.getElementById('img-zoom-out-btn').onclick = function() {
+        if (zoomLevel > minZoom) {
+            zoomLevel -= step;
+            setImgZoom();
+        }
+    };
+})();
+</script>
 
 <style>
 @keyframes zoomPulse {
