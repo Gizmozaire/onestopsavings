@@ -641,23 +641,32 @@ document.getElementById('zoom-modal').onclick = function(e) {
             &copy; 2025 All rights reserved.
         </div>
     </div>
-    <script>
-        // Play YouTube video in-page
-        document.getElementById('play-btn').onclick = function() {
-            document.getElementById('video-thumb').style.display = 'none';
-            document.getElementById('play-btn').style.display = 'none';
-            var iframeContainer = document.getElementById('video-iframe-container');
-            var iframe = document.getElementById('youtube-iframe');
-            iframe.src = "https://www.youtube.com/embed/d60UHc1cgog?autoplay=1";
-            iframeContainer.style.display = 'block';
-        };
-        // Minimize video
-        document.getElementById('minimize-btn').onclick = function() {
-            document.getElementById('video-iframe-container').style.display = 'none';
-            document.getElementById('youtube-iframe').src = "";
-            document.getElementById('video-thumb').style.display = 'block';
-            document.getElementById('play-btn').style.display = 'flex';
-        };
-    </script>
+<!-- Place this at the end of your <body> -->
+<audio id="agent-audio" src="{{ url_for('static', filename='agent.mp3') }}"></audio>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const agentAudio = document.getElementById('agent-audio');
+    let played = false;
+
+    function playAgentAudio() {
+        if (!played) {
+            agentAudio.play().catch(() => {
+                document.body.addEventListener('click', function handler() {
+                    agentAudio.play();
+                    document.body.removeEventListener('click', handler);
+                });
+            });
+            played = true;
+        }
+    }
+
+    window.addEventListener('scroll', function() {
+        const scrollPercent = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+        if (scrollPercent > 0.15) {
+            playAgentAudio();
+        }
+    });
+});
+</script>
 </body>
 </html>
