@@ -615,7 +615,12 @@ body {
                 </p>
             </div>
  <!-- Replace your current video dropdown and modal code with the following for a modern, animated thunderbolt dropdown and inline video player. -->
-
+<div style="text-align:center; margin:40px 0;">
+                <h2 style="font-family:'Montserrat',sans-serif; font-size:2rem; color:#6cdfef; font-weight:700; margin-bottom:18px;">
+                    AT FINANCE PRO PLUS’ WE MOVE FAST.
+                </h2>
+                <img src="{{ url_for('static', filename='agentplan.png') }}" alt="Agent Plan" style="max-width:340px; width:100%; border-radius:18px; box-shadow:0 8px 32px rgba(108,223,239,0.25); margin-top:18px;">
+            </div>
 <!-- Thunderbolt Video Dropdown -->
 <div class="video-dropdown-container" style="text-align:center; margin: 40px 0;">
   <label for="videoDropdown" style="font-size:1.3rem; font-weight:700; color:#6cdfef; margin-bottom:12px; display:block;">
@@ -864,12 +869,7 @@ Open up to other countries.</p>
         }
         </style>
        
-        <div style="text-align:center; margin:40px 0;">
-                <h2 style="font-family:'Montserrat',sans-serif; font-size:2rem; color:#6cdfef; font-weight:700; margin-bottom:18px;">
-                    AT FINANCE PRO PLUS’ WE MOVE FAST.
-                </h2>
-                <img src="{{ url_for('static', filename='agentplan.png') }}" alt="Agent Plan" style="max-width:340px; width:100%; border-radius:18px; box-shadow:0 8px 32px rgba(108,223,239,0.25); margin-top:18px;">
-            </div>
+        
       
         
             
@@ -1032,5 +1032,28 @@ Open up to other countries.</p>
 
   
         </style>
+        <!-- Place this audio element just before </body> -->
+<audio id="agent-audio" src="{{ url_for('static', filename='agent.mp3') }}"></audio>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const agentSection = document.querySelector('img[alt="Agent Plan"]');
+    const agentAudio = document.getElementById('agent-audio');
+    let played = false;
+
+    if (agentSection && agentAudio) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !played) {
+                    agentAudio.play();
+                    played = true;
+                }
+            });
+        }, { threshold: 0.7 });
+
+        observer.observe(agentSection);
+    }
+});
+</script>
 </body>
 </html>
