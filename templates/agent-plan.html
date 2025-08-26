@@ -641,31 +641,31 @@ document.getElementById('zoom-modal').onclick = function(e) {
             &copy; 2025 All rights reserved.
         </div>
     </div>
-<!-- Place this at the end of your <body> -->
+<!-- Place this at the very end, just before </body> -->
 <audio id="agent-audio" src="{{ url_for('static', filename='agent.mp3') }}"></audio>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const agentAudio = document.getElementById('agent-audio');
-    let played = false;
+    if (!agentAudio) return; // Prevent null error
 
-    function playAgentAudio() {
-        if (!played) {
-            agentAudio.play().catch(() => {
-                document.body.addEventListener('click', function handler() {
-                    agentAudio.play();
-                    document.body.removeEventListener('click', handler);
-                });
-            });
-            played = true;
+    function playAgentAudio(e) {
+        // Ignore if the event target is an input, textarea, or contenteditable
+        const tag = e.target.tagName.toLowerCase();
+        if (
+            tag === 'input' ||
+            tag === 'textarea' ||
+            e.target.isContentEditable
+        ) return;
+        try {
+            agentAudio.currentTime = 0;
+            agentAudio.play();
+        } catch (err) {
+            // Ignore NotAllowedError
         }
     }
 
-    window.addEventListener('scroll', function() {
-        const scrollPercent = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
-        if (scrollPercent > 0.15) {
-            playAgentAudio();
-        }
-    });
+    document.body.addEventListener('click', playAgentAudio);
+    document.body.addEventListener('touchstart', playAgentAudio);
 });
 </script>
 </body>
