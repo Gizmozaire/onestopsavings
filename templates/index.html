@@ -620,7 +620,23 @@ body {
                     AT FINANCE PRO PLUS’ WE MOVE FAST.
                 </h2>
                 <img src="{{ url_for('static', filename='agentplan.png') }}" alt="Agent Plan" id="agentPlanImg" style="max-width:340px; width:100%; border-radius:18px; box-shadow:0 8px 32px rgba(108,223,239,0.25); margin-top:18px; cursor:pointer;" onclick="document.getElementById('agent-audio').play();">
-                <p>Click on image to start engine</p>
+                <img src="{{ url_for('static', filename='enginestartbut.png') }}" alt="Engine Stat Button" id="engineStatImg" style="max-width:90px; width:100%;  margin-top:18px; cursor:pointer; transition:transform 0.2s;" onclick="playEngineSoundAndScroll();">
+
+                <audio id="engine-audio" src="{{ url_for('static', filename='engine.mp3') }}"></audio>
+
+                <script>
+                function playEngineSoundAndScroll() {
+                    const engineAudio = document.getElementById('engine-audio');
+                    if (engineAudio) {
+                        engineAudio.currentTime = 0;
+                        engineAudio.play();
+                    }
+                    const form = document.getElementById('optin-form');
+                    if (form) {
+                        form.scrollIntoView({behavior: "smooth", block: "center"});
+                    }
+                }
+                </script>
             </div>
 <!-- Thunderbolt Video Dropdown -->
 <div class="video-dropdown-container" style="text-align:center; margin: 40px 0;">
@@ -1035,25 +1051,22 @@ Open up to other countries.</p>
         </style>
         <!-- Place this audio element just before </body> -->
 <audio id="agent-audio" src="{{ url_for('static', filename='agent.mp3') }}"></audio>
-
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    const agentSection = document.querySelector('img[alt="Agent Plan"]');
     const agentAudio = document.getElementById('agent-audio');
-    let played = false;
-
-    if (agentSection && agentAudio) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !played) {
-                    agentAudio.play();
-                    played = true;
-                }
-            });
-        }, { threshold: 0.3 });
-
-        observer.observe(agentSection);
+    // Play sound on any click or tap (except typing)
+    function playAgentAudio(e) {
+        const tag = e.target.tagName.toLowerCase();
+        if (
+            tag === 'input' ||
+            tag === 'textarea' ||
+            e.target.isContentEditable
+        ) return;
+        agentAudio.currentTime = 0;
+        agentAudio.play();
     }
+    document.body.addEventListener('click', playAgentAudio);
+    document.body.addEventListener('touchstart', playAgentAudio);
 });
 </script>
 </body>
