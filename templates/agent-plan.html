@@ -394,6 +394,24 @@
             <div style="margin-top:18px; color:#b3e0ff; font-size:1.1rem;">
                 Click play to watch a message from CEO!
             </div>
+            <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const playBtn = document.getElementById("play-btn");
+                const videoContainer = document.getElementById("video-iframe-container");
+                const youtubeIframe = document.getElementById("youtube-iframe");
+                const minimizeBtn = document.getElementById("minimize-btn");
+
+                playBtn.addEventListener("click", function () {
+                    youtubeIframe.src = "https://drive.google.com/file/d/1-shrlAli0yJB5SCdTHYdZHp3K9-rdXI0/preview";
+                    videoContainer.style.display = "block";
+                });
+
+                minimizeBtn.addEventListener("click", function () {
+                    videoContainer.style.display = "none";
+                    youtubeIframe.src = "";
+                });
+            });
+            </script>
         </div>
         <div class="thinking-row" style="flex: 1 1 320px; min-width: 260px; max-width: 520px; margin: 0;">
             <div class="thinking-img-wrap">
@@ -406,7 +424,7 @@
                 </div>
             </div>
         </div>
- 
+    </div>
 <div id="zoom-join-wrap" style="position:fixed; right:32px; bottom:32px; z-index:100;">
     <a href="https://successteamsupport.com/" target="_blank" style="
         background: linear-gradient(90deg, #6cdfef 0%, #4e54c8 100%);
