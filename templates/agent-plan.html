@@ -334,7 +334,150 @@
     </style>
 </head>
 <body>
-    <img src="{{ url_for('static', filename='agentplan.png') }}" alt="Finance Pro Race Car" id="car-img" />
+<!-- Parallel car + man row -->
+<div class="parallel-row">
+  <!-- car (left) -->
+  <div class="car-box">
+    <img src="{{ url_for('static', filename='agentplan.png') }}" alt="Car" class="parallel-img car-img">
+  </div>
+
+  <!-- man (right) -->
+  <div class="man-box">
+    <div class="man-wrap">
+      <img src="{{ url_for('static', filename='man.png') }}" alt="Man" class="parallel-img man-img">
+
+      <!-- hat positioned relative to man-wrap -->
+      <img src="{{ url_for('static', filename='hat.png') }}" alt="Hat" class="hat-img" aria-hidden="true">
+
+      <!-- call-to-action button -->
+      <a class="health-btn"
+         href="https://acrobat.adobe.com/id/urn:aaid:sc:va6c2:ac8385f4-b60f-4ac8-9e89-0f480e650869"
+         target="_blank" rel="noopener noreferrer">
+        Click me to Read Health Benefits
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+/* layout */
+.parallel-row{
+  display:flex;
+  align-items:flex-end; /* align bottoms */
+  justify-content:center;
+  gap:48px;
+  flex-wrap:wrap;
+  margin-top:36px;
+}
+
+/* Boxes */
+.car-box, .man-box {
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+}
+
+/* force same visual height so bottoms line up */
+.parallel-img {
+  max-height:300px;   /* tweak this value to match your visual design */
+  width:auto;
+  display:block;
+  vertical-align:bottom;
+}
+
+/* relative wrapper for man so hat & button can sit on top */
+.man-wrap{
+  position:relative;
+  display:inline-block;
+}
+
+/* Hat positioned above head and bounces independently */
+.hat-img{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  top:-66px;               /* adjust to match hat placement over head */
+  width:110px;
+  height:auto;
+  pointer-events:none;
+  animation: bounceHat 2.4s infinite ease-in-out;
+  /* give a tiny unique delay so it won't sync with man */
+  animation-delay: .25s;
+  transform-origin:50% 75%;
+  z-index:3;
+}
+
+/* Man bouncing independently */
+.man-img{
+  animation: bounceMan 3.2s infinite cubic-bezier(.4,.05,.1,1);
+  animation-delay: 0s;
+  display:block;
+  z-index:2;
+}
+
+/* Button at bottom-right of man-wrap,
+   bounces independently and has a glow animation */
+.health-btn{
+  position:absolute;
+  right:10px;
+  bottom:8px;
+  text-decoration:none;
+  font-weight:700;
+  padding:10px 18px;
+  border-radius:22px;
+  background: linear-gradient(90deg,#6cdfef,#4e54c8);
+  color:#fff;
+  box-shadow:0 6px 18px rgba(78,84,200,0.45);
+  z-index:4;
+
+  /* independent bounce + glow */
+  animation: bounceBtn 2.3s infinite ease-in-out, glowBtn 1.6s infinite alternate;
+  animation-delay: .6s, .6s; /* both start later so unsynced with man/hat */
+  transform-origin:center;
+  white-space:nowrap;
+}
+
+/* --- keyframes --- */
+@keyframes bounceMan {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes bounceHat {
+  0%   { transform: translateX(-50%) translateY(0) rotate(0deg); }
+  50%  { transform: translateX(-50%) translateY(-10px) rotate(-4deg); }
+  100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+}
+
+@keyframes bounceBtn {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes glowBtn {
+  0% { box-shadow: 0 6px 18px rgba(108,223,239,0.55); }
+  100% { box-shadow: 0 14px 36px rgba(78,84,200,0.95); }
+}
+
+/* responsive: stack vertically on narrow screens */
+@media (max-width: 720px){
+  .parallel-row{
+    flex-direction:column;
+    align-items:center;
+  }
+  .parallel-img { max-height:220px; }
+  .health-btn{
+    position:relative;
+    right:auto;
+    bottom:auto;
+    margin-top:8px;
+    display:inline-block;
+    transform:none;
+  }
+}
+</style>
     <div class="fancy-btns">
         <a href="https://financepropartner.com/referral/1006402" class="fancy-btn btn-primary">
             <i class="fas fa-user-plus"></i> REGISTER FREE
