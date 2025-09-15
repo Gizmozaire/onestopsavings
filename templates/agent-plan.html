@@ -568,6 +568,100 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <div id="zoom-modal" style="position:fixed; right:32px; bottom:180px; z-index:101; background:rgba(255,255,255,0.95); border-radius:24px; box-shadow:0 4px 24px var(--neon-cyan); padding:12px; min-width:260px;">
+        <button id="close-zoom-modal" title="Close" style="position:absolute; top:10px; right:10px; background:var(--ethereum-purple); color:#000000; border:none; border-radius:50%; width:32px; height:32px; font-size:1.2rem; cursor:pointer; z-index:10;">
+            <i class="fas fa-times"></i>
+        </button>
+        <div id="zoom-video-thumb-container" style="position:relative; width:220px; height:124px; border-radius:18px; overflow:hidden; background:#000;">
+            <img src="{{ url_for('static', filename='finaceprop.jpg') }}" alt="Zoom Video Thumbnail" style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
+            <div id="zoom-play-btn" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:rgba(255,255,255,0.92); width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 2px 16px var(--ethereum-purple),0 0 20px var(--neon-cyan);">
+                <i class="fas fa-play" style="color:darkviolet; font-size:2rem; margin-left:4px;"></i>
+            </div>
+        </div>
+        <div id="zoom-yt-iframe-container" style="display:none; position:relative; width:220px; height:124px; border-radius:18px; overflow:hidden; margin-top:8px;">
+            <iframe id="zoom-yt-iframe"
+                src=""
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                style="width:100%; height:100%; border-radius:18px; border:none; display:block;"></iframe>
+            <button id="zoom-fullscreen-btn" title="Fullscreen" style="position:absolute; bottom:10px; right:10px; background:var(--neon-cyan); color:#fff; border:none; border-radius:50%; width:32px; height:32px; font-size:1.2rem; cursor:pointer; z-index:10;">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+    </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const closeBtn = document.getElementById("close-zoom-modal");
+        const zoomModal = document.getElementById("zoom-modal");
+        const videoThumbContainer = document.getElementById("zoom-video-thumb-container");
+        const playBtn = document.getElementById("zoom-play-btn");
+        const ytIframeContainer = document.getElementById("zoom-yt-iframe-container");
+        const ytIframe = document.getElementById("zoom-yt-iframe");
+        const fullscreenBtn = document.getElementById("zoom-fullscreen-btn");
+
+        closeBtn.addEventListener("click", function() {
+            zoomModal.style.display = "none";
+            ytIframe.src = "";
+            ytIframeContainer.style.display = "none";
+            videoThumbContainer.style.display = "block";
+        });
+
+        playBtn.addEventListener("click", function() {
+            ytIframe.src = "https://www.youtube.com/embed/c1vT6AsksqU?autoplay=1";
+            ytIframeContainer.style.display = "block";
+            videoThumbContainer.style.display = "none";
+        });
+
+        fullscreenBtn.addEventListener("click", function() {
+            if (ytIframe.requestFullscreen) {
+                ytIframe.requestFullscreen();
+            } else if (ytIframe.webkitRequestFullscreen) {
+                ytIframe.webkitRequestFullscreen();
+            } else if (ytIframe.mozRequestFullScreen) {
+                ytIframe.mozRequestFullScreen();
+            } else if (ytIframe.msRequestFullscreen) {
+                ytIframe.msRequestFullscreen();
+            }
+        });
+    });
+    </script>
 <div id="zoom-join-wrap" style="position:fixed; right:32px; bottom:32px; z-index:100;">
     <a href="https://successteamsupport.com/" target="_blank" style="
         background: linear-gradient(90deg, #6cdfef 0%, #4e54c8 100%);
